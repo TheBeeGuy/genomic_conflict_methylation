@@ -1,0 +1,22 @@
+---
+title: "DMLs"
+author: "Rong"
+date: "March 10, 2019"
+output: html_document
+---
+```{r libraries}
+library(tidyverse)
+source("code/extract_geneID_from_bed_format.R")
+```
+
+```{r}
+active<-read.table("DMLs_10Mar/reproductive_dmls.intersect.bed")
+sterile<-read.table("DMLs_10Mar/steril_dmls.intersect.bed")
+
+
+active_genes<-get_geneID_bedfile(active)
+sterile_genes<-get_geneID_bedfile(sterile)
+
+write.csv(active_genes, "DMLs_10Mar/active_DMLgenes.csv")
+write.csv(sterile_genes,"DMLs_10Mar/sterile_DMLgenes.csv")
+```
