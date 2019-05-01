@@ -1,0 +1,4 @@
+#rum425@aci-b.aci.ics.psu.edu
+
+
+scp ~/Box\ Sync/Projects/Intragenomic\ Conflict/Methylation/DMLs_19_05_01/latest_list.rar rum425@aci-b.aci.ics.psu.edu:~/scratch
