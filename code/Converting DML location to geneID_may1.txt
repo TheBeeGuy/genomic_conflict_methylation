@@ -2,3 +2,8 @@
 
 
 scp ~/Box\ Sync/Projects/Intragenomic\ Conflict/Methylation/DMLs_19_05_01/latest_list.rar rum425@aci-b.aci.ics.psu.edu:~/scratch
+
+~/work/code/bedtools/sort_txt.sh
+~/work/code/bedtools/intersect_DMLS.sh
+
+scp -r rum425@aci-b.aci.ics.psu.edu:~/scratch/DMLs_19_05_01/* .

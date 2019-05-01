@@ -1,0 +1,42 @@
+---
+title: "DML_05_01_19"
+author: "Rong"
+date: "May 1, 2019"
+output: html_document
+---
+```{r libraries}
+library(tidyverse)
+source("code/extract_geneID_from_bed_format.R")
+```
+
+```{r}
+##read in reproductive bed files, parent and strain effects
+rep_parent_DMLs<-read.table("DMLs_19_05_01/repro/parent_DMLs.intersect.bed")
+
+rep_strain_DMLs<-read.table("DMLs_19_05_01/repro/strain_DMLS.intersect.bed")
+
+##read in sterile bed files, split into  parent and strain effects
+sterile_parent_DMLs<-read.table("DMLs_19_05_01/sterile//parent_DMLs.intersect.bed")
+
+
+sterile_strain_DMLs<-read.table("DMLs_19_05_01/sterile//strain_DMLs.intersect.bed")
+
+```
+
+```{r}
+#use custom function to filter by "gene" and remove "ID=" from geneID
+rep_parent_DMLgenes<-get_geneID_bedfile(rep_parent_DMLs,3,9)
+rep_strain_DMLgenes<-get_geneID_bedfile(rep_strain_DMLs,3,9)
+sterile_parent_DMLgenes<-get_geneID_bedfile(sterile_parent_DMLs,3,9)
+sterile_strain_DMLgenes<-get_geneID_bedfile(sterile_strain_DMLs,3,9)
+
+write.csv(rep_parent_DMLgenes, file="DMLs_19_05_01/gene_lists/rep_parent_DMLgenes.csv")
+
+write.csv(rep_strain_DMLgenes, file="DMLs_19_05_01/gene_lists/rep_strain_DMLgenes.csv")
+
+write.csv(sterile_parent_DMLgenes, file="DMLs_19_05_01/gene_lists/sterile_parent_DMLgenes.csv")
+
+write.csv(sterile_strain_DMLgenes, file="DMLs_19_05_01/gene_lists/sterile_strain_DMLgenes.csv")
+
+
+```
